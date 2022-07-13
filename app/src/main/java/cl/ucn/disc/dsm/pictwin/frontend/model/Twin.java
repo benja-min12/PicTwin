@@ -21,8 +21,7 @@ public final class Twin {
      */
     @Getter
     @Setter
-    @Builder.Default
-    private Boolean dislike = Boolean.FALSE;
+    private Boolean dislike ;
 
     /**
      * The Pic
@@ -41,6 +40,5 @@ public final class Twin {
      76 */
     @Getter
     private User owner;
-
 
 }

@@ -32,13 +32,13 @@ public final class User {
     private Integer strikes;
 
 
-    @Builder.Default
     @Getter
     @Setter
-    private State state = State.ACTIVE;
+    private State state;
 
 
-    @Builder.Default
     @Getter
-    private List<Twin> twins = new ArrayList<>();
+    private List<Twin> twins ;
+
+
 }

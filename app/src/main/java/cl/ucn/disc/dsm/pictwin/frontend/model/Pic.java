@@ -24,15 +24,13 @@ public final class Pic {
      * The Instante when the Pic was saved.
      */
     @Getter
-    @Builder.Default
-    private ZonedDateTime timestamp = ZonedDateTime.now();
+    private ZonedDateTime timestamp;
 
     /**
      * The Dislikes
      * **/
     @Getter
-    @Builder.Default
-    private Integer dislikes = 0;
+    private Integer dislikes;
 
     /**
      * The Latitude.
@@ -56,8 +54,7 @@ public final class Pic {
      * The Views.
      */
     @Getter
-    @Builder.Default
-    private Integer views = 0;
+    private Integer views;
     /**
      * The Name.
      */
@@ -76,4 +73,6 @@ public final class Pic {
     @Getter
     @Setter
     private User owner;
+
+
 }

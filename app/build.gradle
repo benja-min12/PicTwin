@@ -59,6 +59,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.10'
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.10'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     //Lombok!
     compileOnly 'org.projectlombok:lombok:1.18.24'
@@ -71,8 +72,7 @@ dependencies {
 
     //SLF4J
     implementation 'org.slf4j:slf4j-api:1.7.36'
-    implementation 'com.github.tony19:logback-android:2.0.0'
-    testImplementation 'org.slf4j:slf4j-api:1.7.36'
-    testImplementation 'ch.qos.logback:logback-classic:1.2.11'
+    implementation 'org.slf4j:slf4j-simple:1.7.36'
+
 
 }

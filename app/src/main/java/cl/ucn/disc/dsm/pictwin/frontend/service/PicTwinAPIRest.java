@@ -7,7 +7,7 @@ import retrofit2.http.Query;
 
 public interface PicTwinAPIRest {
 
-    @GET("users")
+    @GET("/users")
     Call<User> retrieveUser(@Query("email") String email, @Query(value = "password", encoded = true) String password);
 
 
