@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Builder // Replace the constructor
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public final class Pic {
@@ -24,7 +24,7 @@ public final class Pic {
      * The Instante when the Pic was saved.
      */
     @Getter
-    private ZonedDateTime timestamp;
+    private String timestamp;
 
     /**
      * The Dislikes
