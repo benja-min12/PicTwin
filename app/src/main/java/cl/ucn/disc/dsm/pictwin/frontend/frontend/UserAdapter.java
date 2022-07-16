@@ -34,8 +34,8 @@ public final class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Twin twin = this.user.getTwins().get(position);
 
-        holder.mine.setText(String.format("%s", twin.getMy().getId()));
-        holder.yours.setText(String.format("%s", twin.getYours().getId()));
+        holder.mine.setText(String.format("%s", twin.getMy().getPicture()));
+        holder.yours.setText(String.format("%s", twin.getYours().getPicture()));
     }
 
     @Override

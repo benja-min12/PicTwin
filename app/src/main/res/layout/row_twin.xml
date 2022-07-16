@@ -6,18 +6,19 @@
     android:background="@android:color/white"
     android:minHeight="?attr/minTouchTargetSize"
     android:orientation="horizontal">
-    <com.google.android.material.textview.MaterialTextView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/rt_tv_mine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="PIC mine"/>
-    <com.google.android.material.textview.MaterialTextView
+        android:layout_weight="1">
+
+    </com.google.android.material.imageview.ShapeableImageView>
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/rt_tv_yours"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="PIC yours"
-        />
+        android:layout_weight="1">
+
+    </com.google.android.material.imageview.ShapeableImageView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
