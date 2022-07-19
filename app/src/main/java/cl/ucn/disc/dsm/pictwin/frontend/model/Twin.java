@@ -6,7 +6,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
+/**
+ * class Twin.
+ *
+ * @author Benjamin Millas
+ */
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -36,8 +40,8 @@ public final class Twin {
     private Pic yours;
 
     /**
-     75 * The Owner
-     76 */
+    * The Owner
+     * */
     @Getter
     private User owner;
 

@@ -8,50 +8,46 @@
     tools:context=".frontend.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         app:liftOnScroll="true">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/am_mt_toolbar"
+            style="@style/Theme.PicTwin.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="4dp"
+            android:minWidth="?attr/actionBarSize"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:layout_anchor="@+id/appBarLayout"
+            app:layout_anchorGravity="center"
+            app:menu="@menu/menu_toolbar"
+            app:subtitle="@string/app_subtitle"
+            app:title="@string/app_title" />
     </com.google.android.material.appbar.AppBarLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/am_rv_twins"
+        style="@style/Theme.PicTwin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="789dp"
         android:clipToPadding="false"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
         android:scrollbars="vertical"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        tools:listitem="@layout/row_twin"
-
-        />
-
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/am_mt_toolbar"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:contentInsetStart="0dp"
-        android:contentInsetStartWithNavigation="0dp"
-        android:elevation="4dp"
-        android:minWidth="?attr/actionBarSize"
-        android:subtitle="@string/app_subtitle"
-        android:title="@string/app_title"
-        app:layout_anchor="@+id/appBarLayout"
-        app:layout_anchorGravity="center" />
+        tools:listitem="@layout/row_twin" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/CreateTwin"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         app:srcCompat="@android:drawable/ic_menu_camera"
         tools:ignore="SpeakableTextPresentCheck" />
-
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

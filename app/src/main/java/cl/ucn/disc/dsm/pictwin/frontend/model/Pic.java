@@ -1,14 +1,16 @@
 package cl.ucn.disc.dsm.pictwin.frontend.model;
 
-
-import java.time.ZonedDateTime;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Pic.
+ *
+ * @author Benjamin Millas
+ */
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

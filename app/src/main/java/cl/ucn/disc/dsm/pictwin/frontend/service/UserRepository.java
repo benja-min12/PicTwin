@@ -20,12 +20,24 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Headers;
 
+/**
+ * UserRepository class implements PicTwinApiRest interface.
+ * @author Benjamin Millas
+ */
 @Slf4j
 public final class UserRepository {
+    /**
+     * baseUrl variable.
+     */
     private static final String BASE_URL = "http://192.168.1.121:8080";
-
+    /**
+     * apiRest variable.
+     */
     private final PicTwinAPIRest apiRest;
 
+    /**
+     * Constructor.
+     */
     public UserRepository() {
 
         Log.d("buiding reposistory", "building repository with url: " + BASE_URL);
@@ -49,6 +61,13 @@ public final class UserRepository {
 
         this.apiRest = retrofit.create(PicTwinAPIRest.class);
     }
+
+    /**
+     * retrieveUser
+     * @param email String email
+     * @param password String password
+     * @return  Optional<User>
+     */
     @Headers("Content-Type: application/json")
     public Optional<User> retrieveUser(final String email, final String password) {
         Call<User> cUser = this.apiRest.retrieveUser(email, password);
@@ -66,6 +85,13 @@ public final class UserRepository {
         }
 
     }
+
+    /**
+     * createTwin
+     * @param pic Pic pic
+     * @param idUser Long idUser
+     * @return Optional<Twin>
+     */
     public Optional<Twin> createdTwin(final Pic pic, final Long idUser) {
         Call<Twin> cTwin = this.apiRest.createTwin(pic, idUser);
         try {

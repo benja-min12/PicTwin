@@ -1,0 +1,116 @@
+@startuml
+left to right direction
+
+package cl.ucn.disc.dsm.pictwin.frontend.model {
+
+class Pic {
+ - id : Long
+ - timestamp: ZonedDateTime
+ - dislikes: Integer
+ - latitude: Double
+ - longitude: Double
+ - error: Double
+ - views: Integer
+ - name: String
+ - picture: byte[]
+ + Pic(..)
+ + getId() : Long
+ + getTimestamp() : ZonedDateTime
+ + getDislikes() : Integer
+ + incrementDislikes() : Integer
+ + getLatitude() : Double
+ + getLongitude() : Double
+ + getError() : Double
+ + getViews() : Integer
+ + getName() : String
+ + getPicture() : byte[]
+ + getOwner(): User
+}
+
+class Twin {
+ - id: Long
+ - dislike: boolean
+ + Twin(..)
+ + getId(): Long
+ + getDislike(): boolean
+ + setDislike(): void
+ + getMy(): Pic
+ + getYours(): Pic
+ }
+ Twin --> "1" Pic: -my: Pic
+ Twin --> "1" Pic: -yours: Pic
+
+ enum State {
+ ACTIVE
+ BANNED
+ }
+class User {
+ - id: Long
+ - email: String
+ - password: String
+ - strikes: Integer
+ + User(..)
+ + getId(): Long
+ + getEmail(): String
+ + getPassword(): String
+ + getStrikes(): Integer
+ + getState(): State
+ + getTwins(): List<Twin>
+ }
+ User --> "1" State: -state: State
+ User --> "*" Twin: -twins: List<Twins>
+ User <-- Pic: -owner: User
+
+ }
+ package cl.ucn.disc.dsm.pictwin.frontend.frontend.model {
+ class MainActivity {
+    - userViewModel : UserViewModel
+    # OnCreate(Bundle savedInstanceState)
+ }
+ class UserViewModel {
+    - EXECUTOR : Executor
+    - userRepository : UserRepository
+    - userLiveData : MutableLiveData<User>
+    + userViewModel(Application application): void
+    + getUserLiveData(): MutableLiveData<User>
+    + update(): void
+    - retrieveUserFromNetworkInBackground(): void
+    + createTwinInBackground(Pic pic, Long idUser): void
+ }
+    MainActivity --> "1" UserViewModel: -userViewModel: UserViewModel
+    class UserAdapter {
+         -user: User
+        +UserAdapter(User user): void
+        +onCreateViewHolder(ViewGroup parent, int viewType): UserViewHolder
+        +onBindViewHolder(UserViewHolder holder, int position): void
+        +getItemCount(): int
+        +setUser(User user): void
+
+     }
+     class ViewHolder {
+             # mine: Pic
+             # yours: Pic
+            +ViewHolder(View View): void
+     }
+     UserAdapter --> "1" ViewHolder: -viewHolder: ViewHolder <<use>>
+     MainActivity --> "1" UserAdapter: -userAdapter: UserAdapter <<use>>
+ }
+  package cl.ucn.disc.dsm.pictwin.frontend.frontend.service {
+  Interface PicTwinAPIRest {
+    + retrieveUser(String email, String password): User <<Get>>
+    + createTwin(Pic pic, Long idUser): Twin <<Post>>
+  }
+  class UserRepository {
+    - apiRest: PicTwinAPIRest
+    + UserRepository(PicTwinAPIRest apiRest): void
+    + getUser(String email, String password): User
+    + createTwin(Pic pic, Long idUser): Twin
+    }
+    UserRepository -->  PicTwinAPIRest: implement PicTwinAPIRest
+    UserViewModel -->  UserRepository: -userRepository: UserRepository <<use>>
+    UserAdapter ..> User : <<use>>
+    viewHolder  ..> Pic : <<use>>
+  }
+
+
+@enduml
